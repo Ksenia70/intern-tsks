@@ -5,7 +5,7 @@ const excludedKeys = ["groupId", "service", "formatSize", "ca"];
 
 // decode(encoded, translations);
 
-const { decoded, unicValues } = decode(encoded, translations, excludedKeys);
+const { decoded, uniqueValues } = decode(encoded, translations, excludedKeys);
 
 console.log(decoded);
-console.log(unicValues);
+console.log(uniqueValues);

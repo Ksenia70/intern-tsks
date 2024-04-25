@@ -1,5 +1,5 @@
 const decode = (encoded, translations, excludedKeys) => {
-  let unicValues = [];
+  let uniqueValues = [];
   const repeatValues = [];
   const decoded = encoded.map((item) => {
     const decodedItem = {};
@@ -15,20 +15,20 @@ const decode = (encoded, translations, excludedKeys) => {
       }
       if (!isNaN(item[key]) && !excludedKeys.includes(key)) {
         if (!repeatValues.includes(item[key])) {
-          if (unicValues.includes(item[key])) {
+          if (uniqueValues.includes(item[key])) {
             repeatValues.push(item[key]);
-            unicValues = unicValues.filter(
+            uniqueValues = uniqueValues.filter(
               (unicItem) => unicItem !== item[key]
             );
           } else {
-            unicValues.push(item[key]);
+            uniqueValues.push(item[key]);
           }
         }
       }
     });
     return decodedItem;
   });
-  return { decoded, unicValues };
+  return { decoded, uniqueValues };
 };
 
 export default decode;
